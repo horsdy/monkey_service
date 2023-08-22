@@ -8,7 +8,7 @@ public:
 	~ListItem();
 
 	// 提供外部调用来初始化 item 数据
-	void InitSubControls(const std::wstring& img, const std::wstring& title, int nDataIndex);
+	void InitSubControls(const std::wstring& img, const std::wstring& title);
 private:
 	bool OnRemove(ui::EventArgs* args);
 	ui::Label* m_ser_name_label;

@@ -1,8 +1,6 @@
 #include "stdafx.h"
-#include <stdio.h>
 #include "monkeyser_form.h"
-#include "list_provider.h"
-#include "log.h"
+#include "list_item.h"
 
 MonkeySerForm::MonkeySerForm(const std::wstring& class_name, const std::wstring& theme_directory, const std::wstring& layout_xml)
 	: m_class_name(class_name)
@@ -34,14 +32,7 @@ std::wstring MonkeySerForm::GetWindowClassName() const
 void MonkeySerForm::InitWindow()
 {
 	m_group_list = dynamic_cast<ui::ListBox*>(FindControl(L"group_list"));
-	m_service_list = dynamic_cast<ui::VirtualListBox*>(FindControl(L"service_list"));
-
-	// 设置列表数据提供者
-	m_list_provider = new ListProvider();
-	m_service_list->SetDataProvider(m_list_provider);
-	m_service_list->SetElementHeight(60);
-	// 设置元素最大数量
-    m_service_list->InitElement(50);
+	m_service_list = dynamic_cast<ui::ListBox*>(FindControl(L"service_list"));
 
 	/* Regsiter event handler */
 	m_pRoot->AttachBubbledEvent(ui::kEventAll, nbase::Bind(&MonkeySerForm::OnNotify, this, std::placeholders::_1));
@@ -121,8 +112,12 @@ bool MonkeySerForm::OnGroupMenu(ui::EventArgs * msg) {
 	}
 	else if (name == L"add")
 	{
-		m_list_provider->AddElementCount(1);
-		m_service_list->Refresh();
+		ListItem* item = new ListItem;
+		ui::GlobalManager::FillBoxWithCache(item, L"monkey_service/listitem.xml");
+		std::wstring name = L"CF";
+		std::wstring cmd = nbase::StringPrintf(L"cmd -%d", m_service_list->GetCount());
+		item->InitSubControls(name, cmd);
+		m_service_list->Add(item);
 	}
 	else if (name == L"remove")
 	{

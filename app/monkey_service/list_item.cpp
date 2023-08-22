@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "list_item.h"
-#include "list_provider.h"
 
 ListItem::ListItem()
 {
@@ -10,7 +9,7 @@ ListItem::ListItem()
 ListItem::~ListItem()
 = default;
 
-void ListItem::InitSubControls(const std::wstring& name, const std::wstring& cmd, int nDataIndex)
+void ListItem::InitSubControls(const std::wstring& name, const std::wstring& cmd)
 {
 	if (m_ser_name_label == nullptr) {
 		m_ser_name_label = dynamic_cast<ui::Label*>(FindSubControl(L"ser_name_label"));

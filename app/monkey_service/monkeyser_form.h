@@ -1,5 +1,4 @@
 #pragma once
-#include "list_provider.h"
 
 class MonkeySerForm : public ui::WindowImplBase
 {
@@ -39,7 +38,6 @@ private:
 	std::wstring m_layout_xml;
 
 	ui::ListBox* m_group_list;
-	ui::VirtualListBox* m_service_list;
-	ListProvider* m_list_provider;
+	ui::ListBox* m_service_list;
 };
 

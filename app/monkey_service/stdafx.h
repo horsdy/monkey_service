@@ -21,3 +21,6 @@
 
 // ui components
 #include "ui_components/ui_components.h"
+
+// log
+#include "log.h"
