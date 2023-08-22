@@ -12,7 +12,7 @@ ListProvider::~ListProvider() = default;
 ui::Control* ListProvider::CreateElement()
 {
 	ListItem* item = new ListItem;
-	ui::GlobalManager::FillBoxWithCache(item, L"layouts/listitem.xml");
+	ui::GlobalManager::FillBoxWithCache(item, L"monkey_service/listitem.xml");
 	return item;
 }
 
