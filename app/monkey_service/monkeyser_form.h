@@ -3,7 +3,7 @@
 class MonkeySerForm : public ui::WindowImplBase
 {
 public:
-	MonkeySerForm(const std::wstring& class_name, const std::wstring& theme_directory, const std::wstring& layout_xml);
+	MonkeySerForm();
 	~MonkeySerForm();
 
 	/**
@@ -28,7 +28,6 @@ public:
 
 
 public:
-	static void ShowCustomWindow(const std::wstring& class_name, const std::wstring& theme_directory, const std::wstring& layout_xml);
 	bool MonkeySerForm::OnNotify(ui::EventArgs * msg);
 	bool MonkeySerForm::OnGroupMenu(ui::EventArgs * msg);
 

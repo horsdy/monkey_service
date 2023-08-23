@@ -39,10 +39,10 @@ void MainThread::Init()
 	ui::GlobalManager::Startup(theme_dir + L"resources\\", ui::CreateControlCallback(), false);
 
 	// 一个仿微信的布局示例
-	MonkeySerForm::ShowCustomWindow(L"Monkey Service", L"monkey_service", L"monkey_service.xml");
-
-	// 一个仿登录窗口的布局示例
-	// LayoutsForm::ShowCustomWindow(L"login", L"layouts", L"login.xml");
+	MonkeySerForm* window = new MonkeySerForm();
+	window->Create(NULL, window->GetWindowClassName().c_str(), WS_OVERLAPPEDWINDOW & ~WS_MAXIMIZEBOX, 0);
+	window->CenterWindow();
+	window->ShowWindow();
 }
 
 void MainThread::Cleanup()
