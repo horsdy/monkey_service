@@ -10,7 +10,9 @@ public:
 	// 提供外部调用来初始化 item 数据
 	void InitSubControls(const std::wstring& img, const std::wstring& title);
 private:
+	bool OnSwitch(ui::EventArgs* args);
 	bool OnRemove(ui::EventArgs* args);
 	ui::Label* m_ser_name_label;
 	ui::Label* m_ser_cmd_label;
+	ui::Button* m_ser_start_btn;
 };

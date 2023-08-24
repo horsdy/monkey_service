@@ -59,9 +59,25 @@ bool MonkeySerForm::OnNotify(ui::EventArgs * msg)
 			m_group_list->Add(element);
 			m_group_list->SelectItem(m_group_list->GetCount() - 1, true);
 		}
-		else if (name == L"ser_start_btn"){
-			int sel = m_service_list->GetCurSel();
-			
+		else if (name == L"ser_start_btn")
+		{
+			ui::Control* sender = msg->pSender;
+			ui::Box* item = sender->GetParent()->GetParent();
+			ui::Button* ser_stop_btn = dynamic_cast<ui::Button*>(item->FindSubControl(L"ser_stop_btn"));
+			sender->SetVisible(false);
+			ser_stop_btn->SetVisible(true);
+			int index = m_service_list->GetItemIndex(item);
+			m_service_list->SelectItem(index, true);
+		}
+		else if (name == L"ser_stop_btn")
+		{
+			ui::Control* sender = msg->pSender;
+			ui::Box* item = sender->GetParent()->GetParent();
+			ui::Button* ser_start_btn = dynamic_cast<ui::Button*>(item->FindSubControl(L"ser_start_btn"));
+			sender->SetVisible(false);
+			ser_start_btn->SetVisible(true);
+			int index = m_service_list->GetItemIndex(item);
+			m_service_list->SelectItem(index, true);
 		}
 	}
 	else if (msg->Type == ui::kEventMouseMenu)
@@ -92,7 +108,7 @@ bool MonkeySerForm::OnNotify(ui::EventArgs * msg)
 bool MonkeySerForm::OnGroupMenu(ui::EventArgs * msg) {
 	std::wstring name = msg->pSender->GetName();
 
-	LOGNF("OnGroupMenu recv: name:%ws\n", name.c_str());
+	LOGNF("OnGroupMenu name:%ws\n", name.c_str());
 
 	if (name == L"start")
 	{
@@ -109,6 +125,7 @@ bool MonkeySerForm::OnGroupMenu(ui::EventArgs * msg) {
 		std::wstring name = L"User";
 		std::wstring cmd = L"echo hello";
 		item->InitSubControls(name, cmd);
+		item->SetName(nbase::StringPrintf(L"service_item_%d", m_service_list->GetCount()));
 		m_service_list->Add(item);
 	}
 	else if (name == L"remove")
