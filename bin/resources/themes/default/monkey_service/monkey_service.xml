@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window size="1024,768" caption="0,0,0,35">
+  <VBox>
+      <!-- 标题栏 -->
+      <HBox width="stretch" height="35" bkcolor="white">
+        <Control width="auto" height="auto" bkimage="logo_18x18.png" valign="center" margin="8" />
+        <Label text="MonkeyService" valign="center" margin="8" />
+		<Control />
+        <Button class="btn_wnd_min" name="minbtn" margin="4,6,0,0" />
+        <Box width="21" margin="4,6,0,0">
+          <Button class="btn_wnd_max" name="maxbtn" />
+          <Button class="btn_wnd_restore" name="restorebtn" visible="false" />
+        </Box>
+        <Button class="btn_wnd_close" name="closebtn" margin="4,6,8,0" />
+      </HBox>
+	  <Control class="splitline_hor_level1" />
+      <HBox>
+        <!-- 分组列表 -->
+        <VBox width="150" bkcolor="white">
+          <VListBox class="list" name="group_list" width="stretch" padding="0,0,0,0" margin="5,5,5,5" menu="true">
+          </VListBox>
+          <Button class="btn_global_blue_80x30" name="addbtn" width="stretch" text="Add Group" margin="5,0,5,5" />
+        </VBox>
+		<Control class="splitline_ver_level1" />
+        <!-- 服务列表 -->
+        <VBox width="270" >
+          <VListBox class="list" name="service_list" />
+        </VBox>
+        <!-- 日志区域 -->
+        <VBox bkcolor="darkcolor">
+			
+        </VBox>
+      </HBox>
+    </VBox>
+</Window>

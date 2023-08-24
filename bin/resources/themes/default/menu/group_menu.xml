@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+  <VListBox class="menu">
+    <MenuElement class="menu_element" name="start" width="120">
+      <Button width="auto" height="auto" text="Start" valign="center" mouse="false"/>
+    </MenuElement>  
+    <MenuElement class="menu_element" name="stop" width="120">
+      <Button width="auto" height="auto" text="Stop" valign="center" mouse="false"/>
+    </MenuElement>
+    <MenuElement class="menu_element" name="add" width="120">
+      <Button width="auto" height="auto" text="Add" valign="center" mouse="false"/>
+    </MenuElement>
+    <MenuElement class="menu_element" name="remove" width="120">
+      <Button width="auto" height="auto" text="Remove" valign="center" mouse="false"/>
+    </MenuElement>	
+    <MenuElement class="menu_element" name="rename" width="120">
+      <Button width="auto" height="auto" text="Rename" valign="center" mouse="false"/>
+    </MenuElement>
+  </VListBox>
+</Window>

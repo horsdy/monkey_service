@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window>
+  <ListContainerElement class="listitem" height="auto" mousechild="true" align="center">
+    <HBox height="auto" mouse="false" padding="5,5,5,5">
+	  <CheckBox class="checkbox_font12" name="ser_checkbox" margin="5,6,0,10" />
+	  <VBox margin="5,5,0,10" mouse="false" height="auto" >
+       <Label name="ser_name_label" font="system_bold_14" width="auto" height="auto" mouse="false" align="center" />
+	   <Label name="ser_cmd_label" font="system_12" width="auto" height="auto" mouse="false" align="center" />
+      </VBox>
+	  <Button class="btn_start" name="ser_start_btn" width="auto" height="auto" margin="5,12,5,0" />
+	  <Button class="btn_stop" name="ser_stop_btn" width="auto" height="auto" margin="5,12,5,0" visible="false" />
+    </HBox>
+  </ListContainerElement>
+</Window>
